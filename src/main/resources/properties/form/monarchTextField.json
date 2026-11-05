@@ -1,0 +1,254 @@
+[{
+    title : '@@monarch.textfield.edit@@',
+    properties : [{
+        name : 'id',
+        label : '@@form.textfield.id@@',
+        type : 'autocomplete',
+        required : 'True',
+        regex_validation : '^[a-zA-Z0-9_]+$',
+        validation_message : '@@form.textfield.invalidId@@',
+        options_callback : 'FormBuilder.getAllFieldOptions'
+    },
+    {
+        name : 'hiddenField',
+        label : '@@form.hiddenfield.isHiddenField@@',
+        description : '@@monarch.textfield.hidden.desc@@',
+        type : 'checkbox',
+        value : 'false',
+        options : [{value : 'true', label : ''}]
+    },
+    {
+        name : 'label',
+        label : '@@form.textfield.label@@',
+        type : 'textfield',
+        control_field : 'hiddenField',
+        control_value : '^(?!true$).*$',
+        control_use_regex : 'true',
+        required : 'True',
+        value : '@@org.joget.apps.form.lib.TextField.pluginLabel@@'
+    }]
+},
+{
+    title : '@@form.textfield.advancedOptions@@',
+    properties : [{
+        label : '@@form.textfield.data@@',
+        type : 'header'
+    },
+    {
+        "name" : "useDefaultWhenEmpty",
+        "label" : "@@form.hiddenfield.useDefaultWhenEmpty@@",
+        "description" : "@@form.hiddenfield.useDefaultWhenEmpty.desc@@",
+        "type" : "radio",
+        "value" : "",
+        "options" : [{
+            "label" : "@@form.hiddenfield.useDefaultWhenEmpty.valueFirst@@",
+            "value" : ""
+        },
+            {
+                "label" : "@@form.hiddenfield.useDefaultWhenEmpty.dbFirst@@",
+                "value" : "true"
+            },
+            {
+                "label" : "@@form.hiddenfield.useDefaultWhenEmpty.valueOnly@@",
+                "value" : "valueOnly"
+            }
+        ]
+    },
+    {
+        name : 'value',
+        label : '@@form.textfield.value@@',
+        type : 'textfield'
+    },
+    {
+        name : 'maxlength',
+        label : '@@form.textfield.maxlength@@',
+        type : 'textfield',
+        regex_validation : '^[1-9][0-9]*$',
+        validation_message : '@@monarch.textfield.positiveInteger@@',
+        control_field : 'hiddenField',
+        control_value : '^(?!true$).*$',
+        control_use_regex : 'true'
+    },
+    {
+        name : 'validator',
+        label : '@@form.textfield.validator@@',
+        type : 'elementselect',
+        options_ajax : '[CONTEXT_PATH]/web/property/json/getElements?classname=org.joget.apps.form.model.FormValidator',
+        url : '[CONTEXT_PATH]/web/property/json[APP_PATH]/getPropertyOptions'
+    }
+    %s,
+    {
+        label : '@@form.textfield.ui@@',
+        type : 'header'
+    },
+    {
+        name : 'placeholder',
+        label : '@@form.textfield.placeholder@@',
+        type : 'textfield',
+        control_field : 'hiddenField',
+        control_value : '^(?!true$).*$',
+        control_use_regex : 'true'
+    },
+    {
+        name : 'size',
+        label : '@@form.textfield.size@@',
+        type : 'textfield',
+        regex_validation : '^[1-9][0-9]*$',
+        validation_message : '@@monarch.textfield.positiveInteger@@',
+        control_field : 'hiddenField',
+        control_value : '^(?!true$).*$',
+        control_use_regex : 'true'
+    },
+    {
+        "name":"lettercase",
+        "label":"@@form.textfieldLetterCase.lettercase@@",
+        "type":"selectbox",
+        "value":"",
+        "required":"False",
+        "control_field":"hiddenField",
+        "control_value":"^(?!true$).*$",
+        "control_use_regex":"true",
+        "options":[
+            {
+                "value":"",
+                "label":""
+            },
+            {
+                "value":"lowercase",
+                "label":"Lowercase"
+            },
+            {
+                "value":"uppercase",
+                "label":"Uppercase"
+            },
+            {
+                "value":"capitalize",
+                "label":"Capitalize"
+            }
+        ]
+    },
+    {
+        "name":"symbols",
+        "label":"@@form.textfieldSymbols.symbols@@",
+        "description":"@@monarch.textfield.symbols.desc@@",
+        "type":"checkbox",
+        "value":"False",
+        "control_field":"hiddenField",
+        "control_value":"^(?!true$).*$",
+        "control_use_regex":"true",
+        "options":[
+            {
+                "value":"true",
+                "label":""
+            }
+        ]
+    },
+    {
+        name : 'readonly',
+        label : '@@form.textfield.readonly@@',
+        type : 'checkbox',
+        value : 'False',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'readonlyLabel',
+        label : '@@form.textfield.readonlyLabel@@',
+        type : 'checkbox',
+        value : 'False',
+        control_field : 'hiddenField',
+        control_value : '^(?!true$).*$',
+        control_use_regex : 'true',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        label : '@@form.textfield.workflow@@',
+        type : 'header'
+    },
+    {
+        name : 'workflowVariable',
+        label : '@@form.textfield.workflowVariable@@',
+        type : 'autocomplete',
+        options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/workflowVariable/options'
+    },
+    {
+        label : '@@form.textfield.numberFormatting@@',
+        type : 'header'
+    },
+    {
+        name : 'style',
+        label : '@@form.textfield.style@@',
+        type : 'selectbox',
+        value : '',
+        options : [{
+            value : '',
+            label : ''
+        },
+        {
+            value : 'us',
+            label : '@@form.textfield.format.us@@'
+        },
+        {
+            value : 'euro',
+            label : '@@form.textfield.format.euro@@'
+        }]
+    },
+    {
+        name : 'numOfDecimal',
+        label : '@@form.textfield.numOfDecimal@@',
+        type : 'textfield',
+        required : 'True',
+        value : '2',
+        regex_validation : '^[0-9]+$',
+        validation_message : '@@form.textfield.invalidNumOfDecimal@@',
+        control_field: 'style',
+        control_value: 'us|euro',
+        control_use_regex: 'true'
+    },
+    {
+        name : 'prefix',
+        label : '@@form.textfield.prefix@@',
+        type : 'textfield',
+        control_field: 'style',
+        control_value: 'us|euro',
+        control_use_regex: 'true'
+    },
+    {
+        name : 'postfix',
+        label : '@@form.textfield.postfix@@',
+        type : 'textfield',
+        control_field: 'style',
+        control_value: 'us|euro',
+        control_use_regex: 'true'
+    },
+    {
+        name : 'useThousandSeparator',
+        label : '@@form.textfield.useThousandSeparator@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }],
+        control_field: 'style',
+        control_value: 'us|euro',
+        control_use_regex: 'true'
+    },
+    {
+        name : 'storeNumeric',
+        label : '@@form.textfield.storeNumeric@@',
+        type : 'checkbox',
+        value : 'False',
+        control_field : 'style',
+        control_value : 'us|euro',
+        control_use_regex : 'true',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    }]
+}]
